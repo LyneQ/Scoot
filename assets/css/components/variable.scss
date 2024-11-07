@@ -1,0 +1,28 @@
+// Import Fonts
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+
+// Breakpoints
+$breakpoint-mobile: 375px;
+$breakpoint-tablet: 768px;
+$breakpoint-desktop: 1440px;
+
+// Colors
+$yellow: #f9b248;
+$dark-navy: #29353b;
+$dim-grey: #9c9ea3;
+$light-grey: #d4d7db;
+$snow: #f5f5f9;
+$light-yellow: #f6e8c5;
+
+// Typography
+$font-space-mono: 'Space Mono', monospace;
+$font-lexend-deca: 'Lexend Deca', sans-serif;
+
+// Responsive Mixin
+@mixin respond($breakpoint) {
+  @media only screen and (min-width: $breakpoint) {
+    @content;
+  }
+}
