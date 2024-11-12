@@ -29,7 +29,6 @@ button {
   cursor: pointer;
 }
 
-
 .download-button {
   //width: 35vw;
   height: 120px;
@@ -97,26 +96,24 @@ button {
     }
 
     .arrow_downRight {
-      @include arrow('downRight');
+      @include arrow("downRight");
     }
 
     .arrow_topLeft {
-      @include arrow('topLeft');
+      @include arrow("topLeft");
     }
 
     .arrow_downLeft {
-      @include arrow('downLeft');
+      @include arrow("downLeft");
     }
 
     .arrow_topRight {
-      @include arrow('topRight');
+      @include arrow("topRight");
     }
-
 
     p {
       margin: 2.5rem 0;
     }
-
   }
 
   & > * {
@@ -139,57 +136,58 @@ button {
 }
 
 footer {
-  background-color: $dark-navy;
   color: white;
 
+  text-align: center;
 
+  .footer_top {
     padding: 5rem 0;
-    text-align: center;
+    background: url("../image/footer.png") bottom no-repeat;
+    background-size: 100%;
+  }
 
-    h2 {
-      margin: 3rem 3rem 6rem;
-      font-size: 4rem;
+  .footer_down {
+    padding: 2rem 0;
+    background-color: #333a44;
+
+    .footer_link {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+
+      margin-bottom: 7rem;
+
+      li a {
+        list-style: none;
+        text-decoration: none;
+        font-size: 2rem;
+        color: $dim-grey;
+      }
     }
 
-    p {
-      margin: 2rem 0;
+    .footer_social {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+
+      .svg_social {
+        width: 3rem;
+      }
     }
+  }
+
+  h2 {
+    margin: 3rem 3rem 6rem;
+    font-size: 4rem;
+  }
+
+  p {
+    margin: 2rem 0;
+  }
 
   &_app {
     padding: 12rem 5rem;
     display: flex;
     justify-content: space-around;
   }
-
-  //.footer_circle {
-  //  display: flex;
-  //  width: 100%;
-  //  max-width: 100vw;
-  //  overflow: hidden;
-  //  justify-content: space-between;
-  //  flex-wrap: nowrap;
-  //
-  //  &:before,
-  //  &:after {
-  //    margin-bottom: -25%;
-  //    width: 50vw;
-  //    height: 50vw;
-  //    border-radius: 100%;
-  //    position: relative;
-  //    content: '';
-  //  }
-  //
-  //  &:before {
-  //    border: 2rem solid $dim-grey;
-  //    left: -20%;
-  //    bottom: -20%;
-  //  }
-  //
-  //  &:after {
-  //    background-color: $dim-grey;
-  //      right: -20%;
-  //      top: -20%;
-  //  }
-  //
-  //}
 }
