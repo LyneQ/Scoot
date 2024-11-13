@@ -1,35 +1,30 @@
 @mixin arrow($direction) {
-
-  @if ($direction == 'downRight') {
+  @if ($direction == "downRight") {
     position: absolute;
     bottom: 0;
-    right: -4rem;
+    right: -5rem;
     transform: rotateY(180deg);
     background-image: url("../image/arrow-downRight.svg");
     @extend %arrowBase;
-
   }
 
-  @if ($direction == 'topLeft') {
+  @if ($direction == "topLeft") {
     position: absolute;
-    top: -21rem;
-    left: 15.5rem;
-    width: 72%;
+    top: -9rem;
+    left: 45%;
+    width: 80%;
     background-image: url("../image/arrow-topLeft.svg");
     @extend %arrowBase;
-
   }
 
-  @if ($direction == 'topRight') {
+  @if ($direction == "topRight") {
     position: absolute;
-    top: -20rem;
+    top: -11rem;
     left: -4rem;
     background-image: url("../image/arrow-topRight.svg");
     @extend %arrowBase;
     width: 90%;
-
   }
-
 }
 
 %arrowBase {
