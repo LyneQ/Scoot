@@ -4,9 +4,9 @@
 
 
 // Breakpoints
-$breakpoint-mobile: 375px;
-$breakpoint-tablet: 768px;
-$breakpoint-desktop: 1440px;
+$breakpoint-mobile: 100px;
+$breakpoint-tablet: 600px;
+$breakpoint-desktop: 1024px;
 
 // Colors
 $yellow: #fcb72b;
@@ -14,7 +14,7 @@ $dark-navy: #495567;
 $dim-grey: #939CAA;
 $light-grey: #E5ECF4;
 $snow: #F2F5F9;
-$light-yellow: #fFFF4DF;
+$light-yellow: #FFF4DF;
 
 // Typography
 $font-space-mono: 'Space Mono', monospace;
