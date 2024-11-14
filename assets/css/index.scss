@@ -30,6 +30,47 @@ button {
   cursor: pointer;
 }
 
+
+@include respond($breakpoint-mobile) {
+
+  %arrowBase {
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+
+    display: block;
+    background-repeat: no-repeat;
+    background-position: bottom;
+    background-size: 100%;
+  }
+
+  .arrow_downRight {
+    @extend %arrowBase;
+    @include arrow("downRight");
+  }
+
+  .arrow_topLeft {
+    @extend %arrowBase;
+    @include arrow("topLeft");
+  }
+
+  .arrow_downLeft {
+    @extend %arrowBase;
+    @include arrow("downLeft");
+  }
+
+  .arrow_topRight {
+    @extend %arrowBase;
+    @include arrow("topRight");
+  }
+}
+
+//.arrow_bottomLeft-large {
+//  @include arrow("bottomLeft-large") {
+//    @extend %arrowBase;
+//  }
+//}
+
 .hero {
   background-image: url("../image/hero-scoot.jpg");
   background-size: cover;
@@ -77,11 +118,11 @@ button {
       background-position: left;
 
       @include respond($breakpoint-mobile) {
-        background-image: url("../image/arrow-right.svg");
+        background-image: url("../image/arrows/arrow-right.svg");
       }
 
       @include respond($breakpoint-tablet) {
-        background-image: url("../image/arrow-topRight.svg");
+        background-image: url("../image/arrows/arrow-topRight.svg");
         height: 70%;
       }
     }
@@ -96,7 +137,7 @@ button {
         right: 0;
         width: 35%;
         height: 100%;
-        background-image: url("../image/bubles.svg");
+        background-image: url("../image/arrows/bubles.svg");
         background-size: contain;
         background-repeat: no-repeat;
         background-position: right;
@@ -169,32 +210,27 @@ button {
 
 .advantage {
   &_card {
-    padding: 4rem;
+    padding: 2rem;
     border-radius: 1rem;
     background-color: white;
     text-align: center;
     overflow: hidden;
 
-    .advantage_card_img {
+    &_img {
       position: relative;
       z-index: 0;
       margin-bottom: 8rem;
-    }
 
-    .arrow_downRight {
-      @include arrow("downRight");
-    }
+      @include respond($breakpoint-tablet) {
+        width: 50vw;
 
-    .arrow_topLeft {
-      @include arrow("topLeft");
-    }
-
-    .arrow_downLeft {
-      @include arrow("downLeft");
-    }
-
-    .arrow_topRight {
-      @include arrow("topRight");
+        &::before {
+          width: 40vw;
+          height: 40vw;
+          background-color: $light-grey;
+          border-radius: 100%;
+        }
+      }
     }
 
     p {

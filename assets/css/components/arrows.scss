@@ -1,47 +1,38 @@
 @mixin arrow($direction) {
+
+  @content;
+
   @if ($direction == "downRight") {
     position: absolute;
     bottom: 0;
     right: -5rem;
     transform: rotateY(180deg);
-    background-image: url("../image/arrow-downRight.svg");
-    @extend %arrowBase;
+    background-image: url("../image/arrows/arrow-downRight.svg");
+
   }
 
   @if ($direction == "topLeft") {
     position: absolute;
-    top: -9rem;
-    left: 45%;
-    width: 80%;
-    background-image: url("../image/arrow-topLeft.svg");
-    @extend %arrowBase;
+    top: -47vw;
+    right: -7vw;
+    width: 57vw;
+    background-image: url("../image/arrows/arrow-topLeft.svg");
   }
 
   @if ($direction == "topRight") {
     position: absolute;
-    top: -11rem;
+    top: -45vw;
     left: -4rem;
-    background-image: url("../image/arrow-topRight.svg");
-    @extend %arrowBase;
-    width: 90%;
+    background-image: url(../image/arrows/arrow-topRight.svg);
+    width: 74vw;
+  }
+
+  @if ($direction == "bottomLeft-large") {
+    position: absolute;
+    bottom: -10rem;
+    left: 0;
+    background-image: url("../image/arrows/arrow-bottomLeft-large.svg");
+    width: 100%;
   }
 }
 
-%arrowBase {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  z-index: 1;
-
-  display: block;
-  //width: 100%;
-  //height: 100%;
-  background-repeat: no-repeat;
-  background-position: bottom;
-  background-size: 100%;
-
-  //&:before {
-  //  content: "";
-  //
-  //}
-}
