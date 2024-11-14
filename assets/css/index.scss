@@ -1,6 +1,7 @@
 @use "components/reset" as *;
 @use "components/variable" as *;
 @use "components/navbar" as *;
+@use "components/footer" as *;
 @use "components/arrows" as *;
 
 html {
@@ -30,47 +31,6 @@ button {
   cursor: pointer;
 }
 
-
-@include respond($breakpoint-mobile) {
-
-  %arrowBase {
-    width: 100%;
-    height: 100%;
-    z-index: 1;
-
-    display: block;
-    background-repeat: no-repeat;
-    background-position: bottom;
-    background-size: 100%;
-  }
-
-  .arrow_downRight {
-    @extend %arrowBase;
-    @include arrow("downRight");
-  }
-
-  .arrow_topLeft {
-    @extend %arrowBase;
-    @include arrow("topLeft");
-  }
-
-  .arrow_downLeft {
-    @extend %arrowBase;
-    @include arrow("downLeft");
-  }
-
-  .arrow_topRight {
-    @extend %arrowBase;
-    @include arrow("topRight");
-  }
-}
-
-//.arrow_bottomLeft-large {
-//  @include arrow("bottomLeft-large") {
-//    @extend %arrowBase;
-//  }
-//}
-
 .hero {
   background-image: url("../image/hero-scoot.jpg");
   background-size: cover;
@@ -83,6 +43,9 @@ button {
     width: fit-content;
     text-align: center;
     padding: 0 2.5rem;
+    @include respond($breakpoint-tablet) {
+      padding: 0 6.5rem;
+    }
 
     h1 {
       font-size: 3.5rem;
@@ -159,6 +122,8 @@ button {
     padding: 3rem 4rem;
 
     @include respond($breakpoint-tablet) {
+      padding: 0 4rem;
+
       display: flex;
       flex-direction: row;
       gap: 65px;
@@ -167,6 +132,7 @@ button {
 
     .pipe {
       width: 0;
+
       &:before {
         @include respond($breakpoint-tablet) {
           display: block;
@@ -175,7 +141,7 @@ button {
           height: 150%;
           position: relative;
 
-          left: -2em;
+          left: -1.7em;
           top: -11rem;
           z-index: -1;
           background-image: url("../image/pipe.svg");
@@ -187,9 +153,10 @@ button {
   }
 
   position: relative;
+
   img {
     margin: 0 auto;
-    width: 9rem;
+    width: 13rem;
   }
 
   h4 {
@@ -216,25 +183,99 @@ button {
     text-align: center;
     overflow: hidden;
 
-    &_img {
+    &_img_wrapper {
       position: relative;
       z-index: 0;
       margin-bottom: 8rem;
 
-      @include respond($breakpoint-tablet) {
-        width: 50vw;
+      .circle {
+        @include respond($breakpoint-mobile) {
+          display: none;
+        }
+        @include respond($breakpoint-tablet) {
+          display: block;
+        }
+        position: absolute;
+        top: 3vh;
+        right: -30%;
+        width: 40vw;
+        height: 40vw;
+        background-color: $light-grey;
+        border-radius: 100%;
+      }
 
-        &::before {
-          width: 40vw;
-          height: 40vw;
-          background-color: $light-grey;
-          border-radius: 100%;
+      .circle-reverse {
+        @include respond($breakpoint-mobile) {
+          display: none;
+        }
+        @include respond($breakpoint-tablet) {
+          display: block;
+        }
+        position: absolute;
+        top: 3vh;
+        left: -30%;
+        width: 40vw;
+        height: 40vw;
+        background-color: $light-grey;
+        border-radius: 100%;
+      }
+
+      .arrow_downRight {
+        @extend %arrowBase;
+        @include arrow("downRight") {
+          @include responsiveArrow("mobile");
         }
       }
+
+      .arrow_topLeft {
+        @extend %arrowBase;
+        @include arrow("topLeft") {
+          @include responsiveArrow("mobile");
+        }
+      }
+
+      .arrow_downLeft {
+        @extend %arrowBase;
+        @include arrow("downLeft") {
+          @include responsiveArrow("mobile");
+        }
+      }
+
+      .arrow_topRight {
+        @extend %arrowBase;
+        @include arrow("topRight") {
+          @include responsiveArrow("mobile");
+        }
+      }
+
+      .arrow_bottomLeft-large {
+        @extend %arrowBase;
+        @include arrow("bottomLeft-large") {
+          @include responsiveArrow("tablet");
+        }
+      }
+
+      .arrow_topRight-large {
+        @extend %arrowBase;
+        @include arrow("topRight-large") {
+          @include responsiveArrow("tablet");
+        }
+      }
+
+      .arrow_topLeft-large {
+        @extend %arrowBase;
+        @include arrow("topLeft-large") {
+          @include responsiveArrow("tablet");
+        }
+      }
+
     }
 
     p {
       margin: 2.5rem 0;
+      @include respond($breakpoint-tablet) {
+        margin: 2.5rem;
+      }
     }
   }
 
@@ -244,6 +285,10 @@ button {
 
   img {
     width: 100%;
+    @include respond($breakpoint-tablet) {
+      width: 50%;
+      margin: 0 auto;
+    }
   }
 
   h3 {
@@ -254,65 +299,5 @@ button {
     color: $dim-grey;
     font-size: 1.3rem;
     font-weight: 400;
-  }
-}
-
-footer {
-  color: white;
-
-  text-align: center;
-
-  .footer_top {
-    padding: 5rem 0;
-    background-image: url(../image/footer.png);
-    background-position: bottom;
-    background-size: 100%;
-    background-repeat: no-repeat;
-
-    .footer_circle {
-      padding-top: 5rem;
-      display: flex;
-      flex-direction: row;
-      justify-content: center;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 1rem;
-    }
-  }
-
-  .footer_down {
-    padding: 6rem 0;
-    background-color: #333a44;
-
-    .footer_link {
-      display: flex;
-      flex-direction: column;
-      gap: 1.5rem;
-
-      margin: 4rem 0;
-
-      li a {
-        list-style: none;
-        text-decoration: none;
-        font-size: 1.2rem;
-        color: $dim-grey;
-      }
-    }
-
-    .footer_social {
-      display: flex;
-      justify-content: center;
-      gap: 2rem;
-
-      .svg_social {
-        width: 2rem;
-      }
-    }
-  }
-
-  &_app {
-    padding: 12rem 5rem;
-    display: flex;
-    justify-content: space-around;
   }
 }
