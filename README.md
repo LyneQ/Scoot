@@ -5,8 +5,6 @@
 - [Fonctionnalités](#fonctionnalités)
 - [Installation](#installation)
 - [Utilisation](#utilisation)
-- [Contribuer](#contribuer)
-- [Licence](#licence)
 
 ## Aperçu
 Scoot est une application moderne et réactive conçue pour offrir une expérience utilisateur fluide et intuitive. 
