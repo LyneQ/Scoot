@@ -1,6 +1,7 @@
 @use "components/reset" as *;
 @use "components/variable" as *;
 @use "components/navbar" as *;
+@use "components/footer" as *;
 @use "components/arrows" as *;
 
 html {
@@ -39,244 +40,304 @@ button {
   padding: 5rem 0;
 
   &_top {
-    width: fit-content;
+    position: relative;
+    //width: fit-content;
     text-align: center;
     padding: 0 2.5rem;
 
-    h1 {
-      font-size: 3.5rem;
-    }
-
-    &_arrow {
-      width: 35vw;
-    }
-
-    p {
-      font-weight: 300;
-      color: white;
-      margin: 2rem 0;
-    }
-  }
-
-  position: relative;
-
-  &_bottom {
-    position: relative;
-    display: block;
-    height: 200px;
-
-    &:before {
-      content: "";
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-repeat: no-repeat;
-      background-size: contain;
-      background-position: left;
-
-      @include respond($breakpoint-mobile) {
-        background-image: url("../image/arrow-right.svg");
-      }
-
-      @include respond($breakpoint-tablet) {
-        background-image: url("../image/arrow-topRight.svg");
-        height: 70%;
-      }
-    }
-
-    .bubles {
-      display: none;
-
-      @include respond($breakpoint-tablet) {
-        display: block;
-        position: absolute;
-        bottom: -60px;
-        right: 0;
-        width: 35%;
-        height: 100%;
-        background-image: url("../image/bubles.svg");
-        background-size: contain;
-        background-repeat: no-repeat;
-        background-position: right;
-      }
-    }
-  }
-}
-
-.tutorial {
-  text-align: center;
-  padding: 7rem 0;
-
-  @include respond($breakpoint-tablet) {
-    display: flex;
-    flex-direction: column;
-  }
-
-  &_cart {
-    padding: 3rem 4rem;
 
     @include respond($breakpoint-tablet) {
-      display: flex;
-      flex-direction: row;
-      gap: 65px;
+      padding: 0 6.5rem;
+    }
+    @include respond($breakpoint-desktop) {
       text-align: left;
     }
 
-    .pipe {
-      width: 0;
+    &_content {
+      padding: 1.5rem 0;
+
+      @include respond($breakpoint-desktop) {
+        padding: 1.5rem 0 0 14rem;
+        max-width: 57vw;
+
+        &::before {
+          content: url("../image/arrows/arrow-body.svg");
+          position: absolute;
+          top: 50%;
+          left: 0;
+        }
+
+        &::after {
+          content: url("../image/arrows/arrow-topRight-large.svg");
+          position: absolute;
+          top: 50%;
+          left: 560px;
+
+        }
+      }
+
+        h1 {
+          font-size: 3.5rem;
+        }
+
+        p {
+          max-width: 300px;
+          padding-bottom: 1.5rem;
+          font-weight: 300;
+          color: white;
+
+          @include respond($breakpoint-tablet) {
+            font-size: 1.5rem;
+          }
+        }
+      }
+    }
+
+    &_bottom {
+      position: relative;
+      display: block;
+      height: 200px;
+
       &:before {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: left;
+
+        @include respond($breakpoint-desktop){
+          display: none;
+        }
+
+        @include respond($breakpoint-mobile) {
+          background-image: url("../image/arrows/arrow-right.svg");
+        }
+
+        @include respond($breakpoint-tablet) {
+          background-image: url("../image/arrows/arrow-topRight.svg");
+          height: 70%;
+        }
+      }
+
+      .bubles {
+        display: none;
+
         @include respond($breakpoint-tablet) {
           display: block;
-          content: "";
-          width: 20rem;
-          height: 150%;
-          position: relative;
+          position: absolute;
+          bottom: -60px;
+          right: 0;
+          width: 35%;
+          height: 100%;
+          background-image: url("../image/arrows/bubles.svg");
+          background-size: contain;
+          background-repeat: no-repeat;
+          background-position: right;
 
-          left: -2em;
-          top: -11rem;
-          z-index: -1;
-          background-image: url("../image/pipe.svg");
-          background-repeat: repeat-y;
-          background-position: center top;
+          @include respond($breakpoint-desktop){
+            bottom: 150px;
+            right: 0;
+            width: 15%;
+          }
         }
       }
     }
   }
 
-  position: relative;
-  img {
-    margin: 0 auto;
-    width: 9rem;
-  }
-
-  h4 {
-    margin: 3rem 0;
-
-    @include respond($breakpoint-tablet) {
-      font-size: 1.8rem;
-      margin: 1em 0;
-    }
-  }
-
-  p {
-    @include respond($breakpoint-tablet) {
-      font-size: 1.2rem;
-    }
-  }
-}
-
-.advantage {
-  &_card {
-    padding: 4rem;
-    border-radius: 1rem;
-    background-color: white;
+  .tutorial {
     text-align: center;
-    overflow: hidden;
+    padding: 7rem 0;
 
-    .advantage_card_img {
-      position: relative;
-      z-index: 0;
-      margin-bottom: 8rem;
+    @include respond($breakpoint-tablet) {
+      display: flex;
+      flex-direction: column;
     }
 
-    .arrow_downRight {
-      @include arrow("downRight");
+    &_cart {
+      padding: 3rem 4rem;
+
+      @include respond($breakpoint-tablet) {
+        padding: 0 4rem;
+
+        display: flex;
+        flex-direction: row;
+        gap: 65px;
+        text-align: left;
+      }
+
+      .pipe {
+        width: 0;
+
+        &:before {
+          @include respond($breakpoint-tablet) {
+            display: block;
+            content: "";
+            width: 20rem;
+            height: 150%;
+            position: relative;
+
+            left: -1.7em;
+            top: -11rem;
+            z-index: -1;
+            background-image: url("../image/pipe.svg");
+            background-repeat: repeat-y;
+            background-position: center top;
+          }
+        }
+      }
     }
 
-    .arrow_topLeft {
-      @include arrow("topLeft");
+    position: relative;
+
+    img {
+      margin: 0 auto;
+      width: 13rem;
     }
 
-    .arrow_downLeft {
-      @include arrow("downLeft");
-    }
+    h4 {
+      margin: 3rem 0;
 
-    .arrow_topRight {
-      @include arrow("topRight");
+      @include respond($breakpoint-tablet) {
+        font-size: 1.8rem;
+        margin: 1em 0;
+      }
     }
 
     p {
+      @include respond($breakpoint-tablet) {
+        font-size: 1.2rem;
+      }
+    }
+  }
+
+  .advantage {
+    &_card {
+      padding: 2rem;
+      border-radius: 1rem;
+      background-color: white;
+      text-align: center;
+      overflow: hidden;
+
+      &_img_wrapper {
+        position: relative;
+        z-index: 0;
+        margin-bottom: 8rem;
+
+        .circle {
+          @include respond($breakpoint-mobile) {
+            display: none;
+          }
+          @include respond($breakpoint-tablet) {
+            display: block;
+          }
+          position: absolute;
+          top: 3vh;
+          right: -30%;
+          width: 40vw;
+          height: 40vw;
+          background-color: $light-grey;
+          border-radius: 100%;
+        }
+
+        .circle-reverse {
+          @include respond($breakpoint-mobile) {
+            display: none;
+          }
+          @include respond($breakpoint-tablet) {
+            display: block;
+          }
+          position: absolute;
+          top: 3vh;
+          left: -30%;
+          width: 40vw;
+          height: 40vw;
+          background-color: $light-grey;
+          border-radius: 100%;
+        }
+
+        .arrow_downRight {
+          @extend %arrowBase;
+          @include arrow("downRight") {
+            @include responsiveArrow("mobile");
+          }
+        }
+
+        .arrow_topLeft {
+          @extend %arrowBase;
+          @include arrow("topLeft") {
+            @include responsiveArrow("mobile");
+          }
+        }
+
+        .arrow_downLeft {
+          @extend %arrowBase;
+          @include arrow("downLeft") {
+            @include responsiveArrow("mobile");
+          }
+        }
+
+        .arrow_topRight {
+          @extend %arrowBase;
+          @include arrow("topRight") {
+            @include responsiveArrow("mobile");
+          }
+        }
+
+        .arrow_bottomLeft-large {
+          @extend %arrowBase;
+          @include arrow("bottomLeft-large") {
+            @include responsiveArrow("tablet");
+          }
+        }
+
+        .arrow_topRight-large {
+          @extend %arrowBase;
+          @include arrow("topRight-large") {
+            @include responsiveArrow("tablet");
+          }
+        }
+
+        .arrow_topLeft-large {
+          @extend %arrowBase;
+          @include arrow("topLeft-large") {
+            @include responsiveArrow("tablet");
+          }
+        }
+
+      }
+
+      p {
+        margin: 2.5rem 0;
+        @include respond($breakpoint-tablet) {
+          margin: 2.5rem;
+        }
+      }
+    }
+
+    & > * {
       margin: 2.5rem 0;
     }
-  }
 
-  & > * {
-    margin: 2.5rem 0;
-  }
-
-  img {
-    width: 100%;
-  }
-
-  h3 {
-    color: $dark-navy;
-  }
-
-  p {
-    color: $dim-grey;
-    font-size: 1.3rem;
-    font-weight: 400;
-  }
-}
-
-footer {
-  color: white;
-
-  text-align: center;
-
-  .footer_top {
-    padding: 5rem 0;
-    background-image: url(../image/footer.png);
-    background-position: bottom;
-    background-size: 100%;
-    background-repeat: no-repeat;
-
-    .footer_circle {
-      padding-top: 5rem;
-      display: flex;
-      flex-direction: row;
-      justify-content: center;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 1rem;
-    }
-  }
-
-  .footer_down {
-    padding: 6rem 0;
-    background-color: #333a44;
-
-    .footer_link {
-      display: flex;
-      flex-direction: column;
-      gap: 1.5rem;
-
-      margin: 4rem 0;
-
-      li a {
-        list-style: none;
-        text-decoration: none;
-        font-size: 1.2rem;
-        color: $dim-grey;
+    img {
+      width: 100%;
+      @include respond($breakpoint-tablet) {
+        width: 50%;
+        margin: 0 auto;
       }
     }
 
-    .footer_social {
-      display: flex;
-      justify-content: center;
-      gap: 2rem;
+    h3 {
+      color: $dark-navy;
+    }
 
-      .svg_social {
-        width: 2rem;
-      }
+    p {
+      color: $dim-grey;
+      font-size: 1.3rem;
+      font-weight: 400;
     }
   }
 
-  &_app {
-    padding: 12rem 5rem;
-    display: flex;
-    justify-content: space-around;
-  }
-}

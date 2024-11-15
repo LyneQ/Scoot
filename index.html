@@ -27,15 +27,18 @@
       </nav>
     </header>
     <main class="hero">
-      <div class="hero_top">
+      <article class="hero_top">
         <h1>Scooter sharing made simple</h1>
-        <p>
-          Scoot takes the hassle out of urban mobility. Our bikes are placed in
-          convenient locations in each of our cities. Use our app to locate the
-          nearest bike, unlock it with a tap, and you’re away!
-        </p>
-        <button>Get Scootin</button>
-      </div>
+        <div class="hero_top_content">
+          <p>
+            Scoot takes the hassle out of urban mobility. Our bikes are placed in
+            convenient locations in each of our cities. Use our app to locate the
+            nearest bike, unlock it with a tap, and you’re away!
+          </p>
+          <button>Get Scootin</button>
+        </div>
+
+      </article>
       <div class="hero_bottom">
         <div class="bubles"></div>
       </div>
@@ -83,13 +86,15 @@
     </section>
     <section class="advantage">
       <div class="advantage_card">
-        <div class="advantage_card_img">
+        <div class="advantage_card_img_wrapper">
           <img
             src="/assets/image/telemetry.jpg"
             class="advantage_card_img"
             alt="women reading her phone"
           />
+          <div class="circle"></div>
           <div class="advantage_card_arrow arrow_downRight"></div>
+          <div class="advantage_card_arrow arrow_bottomLeft-large"></div>
         </div>
         <h3>Easy to use riding telemetry</h3>
         <p>
@@ -100,14 +105,15 @@
         </p>
         <button>Learn more</button>
       </div>
-
       <div class="advantage_card">
-        <div class="advantage_card_img">
+        <div class="advantage_card_img_wrapper">
           <img
             src="/assets/image/city.jpg"
             class="advantage_card_img"
             alt="city with big buildings cars and trees"
           />
+          <div class="circle-reverse"></div>
+          <div class="advantage_card_arrow arrow_topRight-large"></div>
           <div class="advantage_card_arrow arrow_topRight"></div>
         </div>
 
@@ -120,14 +126,18 @@
         </p>
         <button>Learn more</button>
       </div>
+
       <div class="advantage_card">
-        <div class="advantage_card_img">
+        <div class="advantage_card_img_wrapper">
           <img
             src="/assets/image/payment.jpg"
             class="advantage_card_img"
             alt="man taking money from his wallet"
           />
+          <div class="circle"></div>
           <div class="advantage_card_arrow arrow_topLeft"></div>
+          <div class="advantage_card_arrow arrow_topLeft-large"></div>
+
         </div>
         <h3>Zero hassle payments</h3>
         <p>
